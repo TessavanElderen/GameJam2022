@@ -10,21 +10,18 @@ public class CameraToDoor : MonoBehaviour
     [SerializeField] private Door doorScript;
 
     [Header("Timer Settings")]
-    [SerializeField] private int timer = 3; 
+    [SerializeField] private int timer = 3;
 
     void Update()
     {
-        Cam();
+       
         CheckCamPosition();
     }
 
     public void Cam()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            doorCamera.SetActive(true);
-            followCamera.SetActive(false);
-        }
+        doorCamera.SetActive(true);
+        followCamera.SetActive(false);
     }
 
     private IEnumerator TimeDoor()
@@ -33,11 +30,11 @@ public class CameraToDoor : MonoBehaviour
         yield return new WaitForSeconds(timer);
         followCamera.SetActive(true);
         doorCamera.SetActive(false);
-    } 
+    }
 
     void CheckCamPosition()
     {
-        if(mainCamera.transform.position == doorCamera.transform.position)
+        if (mainCamera.transform.position == doorCamera.transform.position)
         {
             StartCoroutine(TimeDoor());
             Debug.Log("Timer werkt");
