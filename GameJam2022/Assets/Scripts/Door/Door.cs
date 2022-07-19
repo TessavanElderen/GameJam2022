@@ -6,14 +6,14 @@ public class Door : MonoBehaviour
 {
     [SerializeField] private float dissolveSpeed;
     private Material dissolveMat;
-    public bool buttonPressed;
+    public bool canDissolve;
     private float maxLifeTime;
 
     private void Start()
     {
         dissolveMat = GetComponent<Renderer>().material;
         maxLifeTime = 1;
-        buttonPressed = false;
+        canDissolve = false;
     }
 
     private void Update()
@@ -23,10 +23,8 @@ public class Door : MonoBehaviour
 
     private void DissolveDoor()
     {
-        if (buttonPressed)
+        if (canDissolve)
         {
-            //need to activate the camera Coroutine
-            // in the Coroutine it activate the shader 
             maxLifeTime -= dissolveSpeed * Time.deltaTime;
             dissolveMat.SetFloat("LifeTime", maxLifeTime);
         }

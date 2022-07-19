@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
-    [SerializeField] private Door doorScript;
+    [SerializeField] private CameraToDoor cameraScript;
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            doorScript.buttonPressed = true;
+            cameraScript.Cam();
             Debug.Log("Knop Ingedrukt");
         }
     }

@@ -7,6 +7,7 @@ public class CameraToDoor : MonoBehaviour
     [SerializeField] private GameObject doorCamera;
     [SerializeField] private GameObject followCamera;
     [SerializeField] private GameObject mainCamera;
+    [SerializeField] private Door doorScript;
 
     [Header("Timer Settings")]
     [SerializeField] private int timer = 3; 
@@ -17,7 +18,7 @@ public class CameraToDoor : MonoBehaviour
         CheckCamPosition();
     }
 
-    void Cam()
+    public void Cam()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -28,6 +29,7 @@ public class CameraToDoor : MonoBehaviour
 
     private IEnumerator TimeDoor()
     {
+        doorScript.canDissolve = true;
         yield return new WaitForSeconds(timer);
         followCamera.SetActive(true);
         doorCamera.SetActive(false);
