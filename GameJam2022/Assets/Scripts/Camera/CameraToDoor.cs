@@ -8,18 +8,19 @@ public class CameraToDoor : MonoBehaviour
     [SerializeField] private GameObject followCamera;
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private Door doorScript;
+    [SerializeField] private DisenableMovement disableMovementScript;
 
     [Header("Timer Settings")]
     [SerializeField] private int timer = 3;
 
     void Update()
     {
-       
         CheckCamPosition();
     }
 
     public void Cam()
     {
+        disableMovementScript.disableMovement = true;
         doorCamera.SetActive(true);
         followCamera.SetActive(false);
     }
@@ -28,6 +29,7 @@ public class CameraToDoor : MonoBehaviour
     {
         doorScript.canDissolve = true;
         yield return new WaitForSeconds(timer);
+        disableMovementScript.disableMovement = false;
         followCamera.SetActive(true);
         doorCamera.SetActive(false);
     }
@@ -40,4 +42,6 @@ public class CameraToDoor : MonoBehaviour
             Debug.Log("Timer werkt");
         }
     }
+
+
 }
