@@ -443,7 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ec08abbec440f946870386966b052f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorScript: {fileID: 943432420}
+  cameraScript: {fileID: 0}
 --- !u!1 &932145783
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,7 +649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dissolveSpeed: 0.8
-  buttonPressed: 0
+  canDissolve: 0
 --- !u!1 &1184631781
 GameObject:
   m_ObjectHideFlags: 0
