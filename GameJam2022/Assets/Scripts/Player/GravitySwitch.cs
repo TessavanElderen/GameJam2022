@@ -5,8 +5,8 @@ using UnityEngine;
 public class GravitySwitch : MonoBehaviour
 {
     [SerializeField] private float gravityChange;
-    private bool gravityUp;
     [SerializeField] private bool canSwitchGravity;
+    private bool gravityUp;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +47,6 @@ public class GravitySwitch : MonoBehaviour
     {
         if (collision.gameObject.tag == "ground")
         {
-            Debug.Log("T");
             canSwitchGravity = true;
         }
     }
@@ -56,7 +55,6 @@ public class GravitySwitch : MonoBehaviour
     {
         if (collision.gameObject.tag == "ground")
         {
-            Debug.Log("F");
             canSwitchGravity = false;
         }
     }
