@@ -7,30 +7,21 @@ public class Panel : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private Image myPanel;
 
-    [SerializeField] private Color myColor;
+    [SerializeField] Color whiteColor, blackColor;
+    Color currentColor;
+    Image panelImage;
 
     private void Start()
     {
-        myColor.a = 1;
-        myColor.b = 0;
+        panelImage = GetComponent<Image>();
+        panelImage.material.color = whiteColor;
+        currentColor = whiteColor; 
     }
     void Update()
     {
-        ColorChanger();
-    }
-
-    void ColorChanger()
-    {
-        
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Door"))
+        if (player.gameObject.name == "Door")
         {
-            myColor.b = 1;
-            myColor.a = 0;
+            panelImage.material.color = Color.Lerp(panelImage.material.color, currentColor, 0.1f);
         }
     }
 }
-//Color.Lerp(Color.white,Color.black, Mathf.PingPong(Time.time, 1));
