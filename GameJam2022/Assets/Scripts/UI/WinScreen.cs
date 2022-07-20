@@ -9,10 +9,13 @@ public class WinScreen : MonoBehaviour
     public bool toggle; 
     [SerializeField] GameObject player;
 
+    [SerializeField] PauzeScreen pauzeScreen;
+
     private void Start()
     {
         winCanvas.enabled = false;
-        toggle = false; 
+        toggle = false;
+        Cursor.lockState = CursorLockMode.Locked;
         cursorVisible = false;
     }
     private void Update()
@@ -26,6 +29,7 @@ public class WinScreen : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             winCanvas.enabled = true;
+            pauzeScreen.enabled = false;
             toggle = true;
             cursorVisible = true;
         }
