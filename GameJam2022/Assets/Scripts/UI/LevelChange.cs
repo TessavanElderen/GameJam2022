@@ -12,21 +12,25 @@ public class LevelChange : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            FadeToLevel(1);
+            FadeToLevel();
         }
     }
 
     // The fade to next scene 
-    public void FadeToLevel(int levelIndex)
+    void FadeToLevel()
     {
-        levelToLoad = levelIndex;
-        animator.SetTrigger("FadeOut");
+       
+        animator.SetBool("FadeOut", true);
+        animator.SetBool("FadeIn", false);
 
+        
     }
 
     //Going to the next scene. 
-    public void OnFadeComplete()
+    void OnFadeComplete()
     {
+        animator.SetBool("FadeIn", true);
+        animator.SetBool("FadeOut", false);
         SceneManager.LoadScene(levelToLoad);
     }
 }
