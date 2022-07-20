@@ -19,6 +19,7 @@ public class Door : MonoBehaviour
     private void Update()
     {
         DissolveDoor();
+        DestroyObject();
     }
 
     private void DissolveDoor()
@@ -27,6 +28,14 @@ public class Door : MonoBehaviour
         {
             maxLifeTime -= dissolveSpeed * Time.deltaTime;
             dissolveMat.SetFloat("LifeTime", maxLifeTime);
+        }
+    }
+
+    private void DestroyObject()
+    {
+        if (maxLifeTime <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
