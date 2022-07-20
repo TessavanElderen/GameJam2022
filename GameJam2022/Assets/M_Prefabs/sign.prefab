@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 815679335061640102}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -2.21, y: 1.54, z: 3.13}
-  m_LocalScale: {x: 1.3639, y: 1.3639, z: 1.3639}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_Children:
   - {fileID: 3777277871382631033}
   - {fileID: 4556248023921637210}
@@ -195,7 +195,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5612776808503540416}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.241, z: 2.973}
+  m_LocalPosition: {x: 0, y: 0.241, z: 1.357}
   m_LocalScale: {x: 2.0942583, y: 2.0143888, z: 3.1767876}
   m_Children: []
   m_Father: {fileID: 7371830365620508}
@@ -276,8 +276,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravitySwitchTutorial: 0
-  buttonTutorial: 1
-  walkTutorial: 0
+  buttonTutorial: 0
+  walkTutorial: 1
   tutorialCanvas: {fileID: 5612776810284970060}
   tutorialText: {fileID: 5612776809505401540}
 --- !u!1 &5612776808876389255

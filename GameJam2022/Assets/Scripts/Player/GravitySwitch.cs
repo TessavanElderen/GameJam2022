@@ -8,7 +8,10 @@ public class GravitySwitch : MonoBehaviour
     [SerializeField] private bool canSwitchGravity;
     [SerializeField] private float RaycastRange;
     [SerializeField] private LayerMask groundLayer;
-    private bool gravityUp;
+    [SerializeField] private float animatieDemp;
+    [SerializeField] Animator animator;
+
+    public bool gravityUp;
     private Ray ray;
     private RaycastHit hitInfo;
 
@@ -23,6 +26,10 @@ public class GravitySwitch : MonoBehaviour
     void Update()
     {
         SwitchGravity();
+    }
+
+    private void FixedUpdate()
+    {
         RayacstCheck();
     }
 
@@ -31,20 +38,26 @@ public class GravitySwitch : MonoBehaviour
         // if you press the space the gravity turns positive so the player would go up
         if (Input.GetKeyDown(KeyCode.Space) && !gravityUp && canSwitchGravity)
         {
+            animator.SetBool("Jumping", true);
+            animator.SetFloat("isJumping", 0, animatieDemp, Time.deltaTime);
             canSwitchGravity = false;
             gravityUp = true;
 
             Physics.gravity = new Vector3(0f,gravityChange,0f);
             transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
+            animator.SetFloat("isJumping", .25f, animatieDemp, Time.deltaTime);
         }
         // if you press the space the gravity turns positive so the player would go down
         else if (Input.GetKeyDown(KeyCode.Space) && gravityUp && canSwitchGravity)
         {
+            animator.SetBool("Jumping", true);
+            animator.SetFloat("isJumping", 0, animatieDemp, Time.deltaTime);
             canSwitchGravity = false;
             gravityUp = false;
 
             Physics.gravity = new Vector3(0f, -gravityChange, 0f);
             transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+            animator.SetFloat("isJumping", .25f, animatieDemp, Time.deltaTime);
         }
     }
 
@@ -55,7 +68,9 @@ public class GravitySwitch : MonoBehaviour
         ray.direction = -transform.up;
 
         if(Physics.Raycast(ray,out hitInfo, RaycastRange, groundLayer) && !canSwitchGravity)
-        { 
+        {
+            animator.SetFloat("isJumping", 1f, animatieDemp, Time.deltaTime);
+            animator.SetBool("Jumping", false);
             canSwitchGravity = true;
         }
     }

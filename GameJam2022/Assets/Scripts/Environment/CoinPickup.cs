@@ -38,10 +38,17 @@ public class CoinPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && gameObject.tag != "specialCoin")
         {
             //Add a coin to you UI
             coinCounterScript.coinCount++;
+            Destroy(gameObject);
+        }
+
+        if (other.gameObject.tag == "Player" && gameObject.tag == "specialCoin")
+        {
+            //Add a coin to you UI
+            coinCounterScript.specialCoinCount++;
             Destroy(gameObject);
         }
     }
