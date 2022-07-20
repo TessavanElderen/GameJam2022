@@ -7,6 +7,7 @@ public class TutorialSignTrigger : MonoBehaviour
 {
     [SerializeField] private bool gravitySwitchTutorial;
     [SerializeField] private bool buttonTutorial;
+    [SerializeField] private bool walkTutorial;
     [SerializeField] private Canvas tutorialCanvas;
     [SerializeField] private TMP_Text tutorialText;
 
@@ -21,6 +22,7 @@ public class TutorialSignTrigger : MonoBehaviour
         {
             GravitySwitchTutorial();
             ButtonTutorial();
+            WalkTutorial();
         }
     }
     private void OnTriggerExit(Collider other)
@@ -42,6 +44,15 @@ public class TutorialSignTrigger : MonoBehaviour
         if(buttonTutorial)
         {
             tutorialText.text = "Land on the button to open the door";
+            tutorialCanvas.enabled = true;
+        }
+    }
+
+    private void WalkTutorial()
+    {
+        if (walkTutorial)
+        {
+            tutorialText.text = "Walk with A and D";
             tutorialCanvas.enabled = true;
         }
     }

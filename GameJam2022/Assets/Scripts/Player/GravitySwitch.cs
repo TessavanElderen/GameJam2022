@@ -6,7 +6,11 @@ public class GravitySwitch : MonoBehaviour
 {
     [SerializeField] private float gravityChange;
     [SerializeField] private bool canSwitchGravity;
+    [SerializeField] private float RaycastRange;
+    [SerializeField] private LayerMask groundLayer;
     private bool gravityUp;
+    private Ray ray;
+    private RaycastHit hitInfo;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +23,7 @@ public class GravitySwitch : MonoBehaviour
     void Update()
     {
         SwitchGravity();
+        RayacstCheck();
     }
 
     private void SwitchGravity()
@@ -43,19 +48,15 @@ public class GravitySwitch : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void RayacstCheck()
     {
-        if (collision.gameObject.tag == "ground")
-        {
-            canSwitchGravity = true;
-        }
-    }
+        //check if the player can change the gravity
+        ray.origin = transform.position;
+        ray.direction = -transform.up;
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "ground")
-        {
-            canSwitchGravity = false;
+        if(Physics.Raycast(ray,out hitInfo, RaycastRange, groundLayer) && !canSwitchGravity)
+        { 
+            canSwitchGravity = true;
         }
     }
 }
