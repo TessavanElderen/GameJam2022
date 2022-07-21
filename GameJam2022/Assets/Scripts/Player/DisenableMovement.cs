@@ -5,14 +5,13 @@ using UnityEngine;
 public class DisenableMovement : MonoBehaviour
 {
     private Movement movementScript;
-    private GravitySwitch gravitySwitchScript;
+    [SerializeField] private GravitySwitch gravitySwitchScript;
     public bool disableMovement;
 
     // Start is called before the first frame update
     void Start()
     {
         movementScript = GetComponent<Movement>();
-        gravitySwitchScript = GetComponent<GravitySwitch>();
         disableMovement = false;
     }
 

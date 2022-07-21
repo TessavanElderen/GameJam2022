@@ -7,14 +7,15 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TestDoor
-  m_Shader: {fileID: -6465566751694194690, guid: bc78e5b530d22e34987bdfb07a30e4d5, type: 3}
+  m_Name: Door
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -76,9 +77,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - LifeTime: 1
-    - Vector1_2f1bd538f245445488b5b8dad10cf61d: 30
-    - Vector1_36a50d2db5074f0d802279db24c415b7: 0.02
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -98,7 +96,7 @@ Material:
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0.5
+    - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -106,14 +104,12 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_d74b1778f33641568b20d5241a9078f4: {r: 0.28235295, g: 0.16862746, b: 0.09803922, a: 1}
-    - Color_e44cf5f2ff5f403da64234a6a12cc43f: {r: 0.754717, g: 0.52685165, b: 0.38732645, a: 0}
-    - _BaseColor: {r: 0.1086576, g: 1, b: 0, a: 1}
+    - _BaseColor: {r: 1, g: 0, b: 0.5019608, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &5180229458089531628
+--- !u!114 &8968631678069401781
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

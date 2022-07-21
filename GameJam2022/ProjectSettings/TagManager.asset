@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ground
   - Door
+  - specialCoin
   layers:
   - Default
   - TransparentFX
