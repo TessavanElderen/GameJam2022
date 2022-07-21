@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class GravitySwitch : MonoBehaviour
 {
+    [Header("Settings")]
     [SerializeField] private float gravityChange;
     [SerializeField] private bool canSwitchGravity;
     [SerializeField] private float RaycastRange;
+    [Header("References")]
     [SerializeField] private LayerMask grassLayer;
     [SerializeField] private LayerMask stoneLayer;
     [SerializeField] private LayerMask woodLayer;
-    [SerializeField] private float animatieDemp;
     [SerializeField] private Animator animator;
-    private AudioSource audioSource;
 
+    private AudioSource audioSource;
     public bool gravityUp;
     private Ray ray;
     private RaycastHit hitInfo;
@@ -21,6 +22,7 @@ public class GravitySwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Physics.gravity = new Vector3(0f,-gravityChange,0f);
         audioSource = GetComponent<AudioSource>();
         canSwitchGravity = true;
         gravityUp = false;
@@ -45,7 +47,7 @@ public class GravitySwitch : MonoBehaviour
             PlayAudio();
 
             animator.SetBool("Jumping", true);
-            animator.SetFloat("isJumping", 0, animatieDemp, Time.deltaTime);
+            animator.SetFloat("isJumping", 0);
             canSwitchGravity = false;
             gravityUp = true;
 
@@ -58,7 +60,7 @@ public class GravitySwitch : MonoBehaviour
             PlayAudio();
 
             animator.SetBool("Jumping", true);
-            animator.SetFloat("isJumping", 0, animatieDemp, Time.deltaTime);
+            animator.SetFloat("isJumping", 0);
             canSwitchGravity = false;
             gravityUp = false;
 
@@ -75,7 +77,7 @@ public class GravitySwitch : MonoBehaviour
 
         if(Physics.Raycast(ray,out hitInfo, RaycastRange, (grassLayer | stoneLayer | woodLayer)) && !canSwitchGravity)
         {
-            animator.SetFloat("isJumping", .5f, animatieDemp, Time.deltaTime);
+            animator.SetFloat("isJumping", .5f);
             animator.SetBool("Jumping", false);
             canSwitchGravity = true;
         }
