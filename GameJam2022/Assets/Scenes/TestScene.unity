@@ -265,6 +265,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelChanger
       objectReference: {fileID: 0}
+    - target: {fileID: 8506337055849416769, guid: 06f67ba301cebd34d81ca8e560b325cf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8506337055849416771, guid: 06f67ba301cebd34d81ca8e560b325cf, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 760d7e5a45bbc41458fd7666e801d41c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06f67ba301cebd34d81ca8e560b325cf, type: 3}
 --- !u!1 &1936770091

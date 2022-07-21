@@ -5,26 +5,23 @@ using UnityEngine.SceneManagement;
 public class LevelChange : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-    [SerializeField] private int levelToLoad; 
+    [SerializeField] private int levelToLoad;
+    [SerializeField] private float fadeSeconds; 
 
     //This is a trigger to go to the next scene
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            FadeToLevel();           
+            StartCoroutine(FadeToLevel()) ;           
         }
     }
 
     // The fade to next scene 
-    public void FadeToLevel()
+    IEnumerator FadeToLevel()
     {
         animator.SetTrigger("FadeOut");
-    }
-
-    //Going to the next scene. 
-    public void OnFadeComplete()
-    {
+        yield return new WaitForSeconds(fadeSeconds);
         SceneManager.LoadScene(levelToLoad);
     }
 }

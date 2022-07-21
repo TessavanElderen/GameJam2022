@@ -1616,6 +1616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1234718475}
   levelToLoad: 2
+  fadeSeconds: 0
 --- !u!1 &1877059445
 GameObject:
   m_ObjectHideFlags: 0
@@ -2187,6 +2188,10 @@ PrefabInstance:
     - target: {fileID: 1949407609, guid: 06f67ba301cebd34d81ca8e560b325cf, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5507767792035538372, guid: 06f67ba301cebd34d81ca8e560b325cf, type: 3}
+      propertyPath: fadeSeconds
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8506337055849416768, guid: 06f67ba301cebd34d81ca8e560b325cf, type: 3}
       propertyPath: m_RootOrder
