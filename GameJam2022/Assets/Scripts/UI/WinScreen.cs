@@ -6,15 +6,16 @@ public class WinScreen : MonoBehaviour
 {
     [SerializeField] Canvas winCanvas;
     public bool cursorVisible;
-    public bool toggle; 
-    [SerializeField] GameObject player;
+    public bool toggleWin; 
 
-    [SerializeField] PauzeScreen pauzeScreen;
+    [SerializeField] private Canvas pauzeScreen;
+    [SerializeField] private Movement movementScript;
 
     private void Start()
     {
         winCanvas.enabled = false;
-        toggle = false;
+        toggleWin = false;
+
         Cursor.lockState = CursorLockMode.Locked;
         cursorVisible = false;
     }
@@ -30,8 +31,10 @@ public class WinScreen : MonoBehaviour
         {
             winCanvas.enabled = true;
             pauzeScreen.enabled = false;
-            toggle = true;
+            toggleWin = true;
             cursorVisible = true;
+
+            movementScript.enabled = false;
         }
     }
 

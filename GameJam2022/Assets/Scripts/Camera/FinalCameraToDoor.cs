@@ -1,50 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class CameraToDoor : MonoBehaviour
-{
-    [Header("Pref")]
-    [SerializeField] private GameObject doorCamera;
-    [SerializeField] private GameObject followCamera;
-    [SerializeField] private GameObject mainCamera;
 
-    [SerializeField] private Door doorScript;
+public class FinalCameraToDoor : MonoBehaviour
+{
+    [SerializeField] private GameObject mainCamera;
+    [SerializeField] private GameObject finalDoorCamera;
+    [SerializeField] private GameObject followCamera;
+
     [SerializeField] private DisenableMovement disableMovementScript;
+    [SerializeField] private Door doorScript;
+
 
     [Header("Timer Settings")]
     [SerializeField] private int timer = 3;
-
-    void Update()
+    // Start is called before the first frame update
+    void Start()
     {
-        CheckCamPosition();
         
     }
 
-    public void DoorCam()
+    // Update is called once per frame
+    void Update()
     {
-        disableMovementScript.disableMovement = true;
-        doorCamera.SetActive(true);
-        followCamera.SetActive(false);
+        CheckFinalCamPostion();
     }
 
 
+    public void FinalDoorCam()
+    {
+        disableMovementScript.disableMovement = true;
+        finalDoorCamera.SetActive(true);
+        followCamera.SetActive(false);
+    }
     private IEnumerator TimeDoor()
     {
         doorScript.canDissolve = true;
         yield return new WaitForSeconds(timer);
         disableMovementScript.disableMovement = false;
         followCamera.SetActive(true);
-        doorCamera.SetActive(false);
+        finalDoorCamera.SetActive(false);
     }
 
-    void CheckCamPosition()
+    void CheckFinalCamPostion()
     {
-        if (mainCamera.transform.position == doorCamera.transform.position)
+        if (mainCamera.transform.position == finalDoorCamera.transform.position)
         {
             StartCoroutine(TimeDoor());
             Debug.Log("Timer werkt");
         }
     }
-
-
 }
