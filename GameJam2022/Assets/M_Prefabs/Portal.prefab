@@ -610,6 +610,7 @@ GameObject:
   - component: {fileID: 8716343392390478451}
   - component: {fileID: 8107514872491334050}
   - component: {fileID: 9174101261532175238}
+  - component: {fileID: 1465318188452019862}
   - component: {fileID: 5050327434062551202}
   m_Layer: 0
   m_Name: Portal
@@ -712,8 +713,26 @@ MonoBehaviour:
   fadeSeconds: 4
   blackCanvasTextCoin: {fileID: 3143407377223683869}
   blackCanvasTextSpecialCoin: {fileID: 3143407376198852171}
+  blackCoinImg: {fileID: 6113930474356486447}
+  blackSpecialCoinImg: {fileID: 9062317078954321257}
+  canvasTextCoin: {fileID: 0}
+  canvasTextSpecialCoin: {fileID: 0}
   coinImg: {fileID: 6113930474356486447}
   specialCoinImg: {fileID: 9062317078954321257}
+--- !u!114 &1465318188452019862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7967512068826269275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2e8a8d022c5887418bcc80a39e2f0f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blackCanvasCoin: {fileID: 3143407377223683869}
+  blackCanvasSpecialCoin: {fileID: 3143407376198852171}
 --- !u!95 &5050327434062551202
 Animator:
   serializedVersion: 3

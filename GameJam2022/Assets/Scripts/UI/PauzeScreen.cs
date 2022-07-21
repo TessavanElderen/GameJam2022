@@ -8,7 +8,6 @@ public class PauzeScreen : MonoBehaviour
     [SerializeField] Canvas canvas;
     [SerializeField] bool TogglePauze;
     public bool cursorVisible;
-    [SerializeField] GameObject player;
 
     private void Start()
     {
@@ -51,7 +50,6 @@ public class PauzeScreen : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneID);
     }
-
 
     void CursorV()
     {
