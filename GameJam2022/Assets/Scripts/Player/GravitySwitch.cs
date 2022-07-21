@@ -45,7 +45,6 @@ public class GravitySwitch : MonoBehaviour
 
             Physics.gravity = new Vector3(0f,gravityChange,0f);
             transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
-            animator.SetFloat("isJumping", .25f, animatieDemp, Time.deltaTime);
         }
         // if you press the space the gravity turns positive so the player would go down
         else if (Input.GetKeyDown(KeyCode.Space) && gravityUp && canSwitchGravity)
@@ -57,7 +56,6 @@ public class GravitySwitch : MonoBehaviour
 
             Physics.gravity = new Vector3(0f, -gravityChange, 0f);
             transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
-            animator.SetFloat("isJumping", .25f, animatieDemp, Time.deltaTime);
         }
     }
 
@@ -69,7 +67,7 @@ public class GravitySwitch : MonoBehaviour
 
         if(Physics.Raycast(ray,out hitInfo, RaycastRange, groundLayer) && !canSwitchGravity)
         {
-            animator.SetFloat("isJumping", 1f, animatieDemp, Time.deltaTime);
+            animator.SetFloat("isJumping", .5f, animatieDemp, Time.deltaTime);
             animator.SetBool("Jumping", false);
             canSwitchGravity = true;
         }
