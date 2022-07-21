@@ -10,6 +10,8 @@ public class GravitySwitch : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float animatieDemp;
     [SerializeField] Animator animator;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip jumpAudio;
 
     public bool gravityUp;
     private Ray ray;
@@ -38,6 +40,7 @@ public class GravitySwitch : MonoBehaviour
         // if you press the space the gravity turns positive so the player would go up
         if (Input.GetKeyDown(KeyCode.Space) && !gravityUp && canSwitchGravity)
         {
+            PlayAudio();
             animator.SetBool("Jumping", true);
             animator.SetFloat("isJumping", 0, animatieDemp, Time.deltaTime);
             canSwitchGravity = false;
@@ -49,6 +52,7 @@ public class GravitySwitch : MonoBehaviour
         // if you press the space the gravity turns positive so the player would go down
         else if (Input.GetKeyDown(KeyCode.Space) && gravityUp && canSwitchGravity)
         {
+            PlayAudio();
             animator.SetBool("Jumping", true);
             animator.SetFloat("isJumping", 0, animatieDemp, Time.deltaTime);
             canSwitchGravity = false;
@@ -71,5 +75,12 @@ public class GravitySwitch : MonoBehaviour
             animator.SetBool("Jumping", false);
             canSwitchGravity = true;
         }
+    }
+
+    private void PlayAudio()
+    {
+        audioSource.Stop();
+        audioSource.clip = jumpAudio;
+        audioSource.Play();
     }
 }

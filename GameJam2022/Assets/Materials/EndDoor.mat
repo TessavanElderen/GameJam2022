@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TestDoor
+  m_Name: EndDoor
   m_Shader: {fileID: -6465566751694194690, guid: bc78e5b530d22e34987bdfb07a30e4d5, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
