@@ -8,13 +8,19 @@ public class CoinPickup : MonoBehaviour
     [SerializeField] private float frequency;
     [SerializeField] private float rotateSpeed;
     [SerializeField] CoinCounter coinCounterScript;
+    private Collider coinCollider;
+    private AudioSource audioSource;
+    private Renderer coinRenderer;
  
     private Vector3 posOffset;
     private Vector3 tempPos;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         posOffset = transform.position;
+        coinCollider = GetComponent<Collider>();
+        coinRenderer = GetComponent<Renderer>();
     }
 
     private void Update()
@@ -41,15 +47,17 @@ public class CoinPickup : MonoBehaviour
         if (other.gameObject.tag == "Player" && gameObject.tag != "specialCoin")
         {
             //Add a coin to you UI
+            audioSource.Play();
             coinCounterScript.coinCount++;
-            Destroy(gameObject);
+            Destroy(gameObject, 0.18f);
         }
 
         if (other.gameObject.tag == "Player" && gameObject.tag == "specialCoin")
         {
             //Add a coin to you UI
+            audioSource.Play();
             coinCounterScript.specialCoinCount++;
-            Destroy(gameObject);
+            Destroy(gameObject, 0.18f);
         }
     }
 }

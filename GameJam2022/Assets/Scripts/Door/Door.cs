@@ -8,9 +8,12 @@ public class Door : MonoBehaviour
     private Material dissolveMat;
     public bool canDissolve;
     private float maxLifeTime;
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip doorSound;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         dissolveMat = GetComponent<Renderer>().material;
         maxLifeTime = 1;
         canDissolve = false;
@@ -26,6 +29,8 @@ public class Door : MonoBehaviour
     {
         if (canDissolve)
         {
+            canDissolve = false;
+            audioSource.Play();
             maxLifeTime -= dissolveSpeed * Time.deltaTime;
             dissolveMat.SetFloat("LifeTime", maxLifeTime);
         }
@@ -35,7 +40,7 @@ public class Door : MonoBehaviour
     {
         if (maxLifeTime <= 0)
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 1f);
         }
     }
 }
