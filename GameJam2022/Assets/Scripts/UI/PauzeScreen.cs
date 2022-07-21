@@ -14,6 +14,7 @@ public class PauzeScreen : MonoBehaviour
     {
         canvas.enabled = false;
         TogglePauze = false;
+        Cursor.lockState = CursorLockMode.Locked;
         cursorVisible = false;
     }
 

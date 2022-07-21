@@ -4,12 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
+    [SerializeField] int index;
 
-    public void FadeToLevel(int levelIndex)
+    public void OnClick()
     {
-        SceneManager.LoadScene(levelIndex);
-        animator.SetTrigger("FadeOut");
+        SceneManager.LoadScene(index);
     }
 
     public void Quit()
