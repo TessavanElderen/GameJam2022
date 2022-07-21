@@ -7,15 +7,18 @@ TagManager:
   - ground
   - Door
   - specialCoin
+  - grass
+  - stone
+  - wood
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - ground
+  - Grass
   - Water
   - UI
-  - 
-  - 
+  - Stone
+  - Wood
   - 
   - 
   - 

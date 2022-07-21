@@ -7,11 +7,12 @@ public class GravitySwitch : MonoBehaviour
     [SerializeField] private float gravityChange;
     [SerializeField] private bool canSwitchGravity;
     [SerializeField] private float RaycastRange;
-    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask grassLayer;
+    [SerializeField] private LayerMask stoneLayer;
+    [SerializeField] private LayerMask woodLayer;
     [SerializeField] private float animatieDemp;
-    [SerializeField] Animator animator;
-    [SerializeField] AudioSource audioSource;
-    [SerializeField] AudioClip jumpAudio;
+    [SerializeField] private Animator animator;
+    private AudioSource audioSource;
 
     public bool gravityUp;
     private Ray ray;
@@ -20,6 +21,7 @@ public class GravitySwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         canSwitchGravity = true;
         gravityUp = false;
     }
@@ -41,6 +43,7 @@ public class GravitySwitch : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !gravityUp && canSwitchGravity)
         {
             PlayAudio();
+
             animator.SetBool("Jumping", true);
             animator.SetFloat("isJumping", 0, animatieDemp, Time.deltaTime);
             canSwitchGravity = false;
@@ -53,6 +56,7 @@ public class GravitySwitch : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Space) && gravityUp && canSwitchGravity)
         {
             PlayAudio();
+
             animator.SetBool("Jumping", true);
             animator.SetFloat("isJumping", 0, animatieDemp, Time.deltaTime);
             canSwitchGravity = false;
@@ -69,7 +73,7 @@ public class GravitySwitch : MonoBehaviour
         ray.origin = transform.position;
         ray.direction = -transform.up;
 
-        if(Physics.Raycast(ray,out hitInfo, RaycastRange, groundLayer) && !canSwitchGravity)
+        if(Physics.Raycast(ray,out hitInfo, RaycastRange, (grassLayer | stoneLayer | woodLayer)) && !canSwitchGravity)
         {
             animator.SetFloat("isJumping", .5f, animatieDemp, Time.deltaTime);
             animator.SetBool("Jumping", false);
@@ -80,7 +84,6 @@ public class GravitySwitch : MonoBehaviour
     private void PlayAudio()
     {
         audioSource.Stop();
-        audioSource.clip = jumpAudio;
         audioSource.Play();
     }
 }
