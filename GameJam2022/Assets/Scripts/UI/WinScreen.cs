@@ -11,15 +11,13 @@ public class WinScreen : MonoBehaviour
     [SerializeField] private Canvas pauzeScreen;
     [SerializeField] private Movement movementScript;
     [SerializeField] private PauzeScreen pauzeScript;
+    private AudioSource audioSource;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         winCanvas.enabled = false;
         toggleWin = false;
-    }
-    private void Update()
-    {
-        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,6 +25,7 @@ public class WinScreen : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
+            audioSource.Play();
             pauzeScript.playerWon = true;
             pauzeScript.cursorVisible = true;
             winCanvas.enabled = true;
