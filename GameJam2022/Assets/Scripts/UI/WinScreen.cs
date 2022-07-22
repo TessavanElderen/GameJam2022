@@ -10,18 +10,16 @@ public class WinScreen : MonoBehaviour
 
     [SerializeField] private Canvas pauzeScreen;
     [SerializeField] private Movement movementScript;
+    [SerializeField] private PauzeScreen pauzeScript;
 
     private void Start()
     {
         winCanvas.enabled = false;
         toggleWin = false;
-
-        Cursor.lockState = CursorLockMode.Locked;
-        cursorVisible = false;
     }
     private void Update()
     {
-        CursorV();
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,26 +27,13 @@ public class WinScreen : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
+            pauzeScript.playerWon = true;
+            pauzeScript.cursorVisible = true;
             winCanvas.enabled = true;
             pauzeScreen.enabled = false;
             toggleWin = true;
-            cursorVisible = true;
 
             movementScript.enabled = false;
-        }
-    }
-
-    void CursorV()
-    {
-        if (cursorVisible == true)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
         }
     }
 }

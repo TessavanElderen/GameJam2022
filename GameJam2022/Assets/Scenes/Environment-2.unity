@@ -7293,6 +7293,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1456468173903982777, guid: f1c93ab23e450314e906c8a3cb6ee892, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1066247828}
     - target: {fileID: 1456468173903982780, guid: f1c93ab23e450314e906c8a3cb6ee892, type: 3}
       propertyPath: m_Navigation.m_Mode
       value: 0
@@ -23817,11 +23821,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2272622096376887409, guid: 43cbe6459d72c6a42b69b0139f107129, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.05
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2272622096376887409, guid: 43cbe6459d72c6a42b69b0139f107129, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 84
       objectReference: {fileID: 0}
     - target: {fileID: 2272622096376887409, guid: 43cbe6459d72c6a42b69b0139f107129, type: 3}
       propertyPath: m_LocalPosition.z
@@ -23871,6 +23875,10 @@ PrefabInstance:
       propertyPath: pauzeScreen
       value: 
       objectReference: {fileID: 1066247828}
+    - target: {fileID: 2272622096376887421, guid: 43cbe6459d72c6a42b69b0139f107129, type: 3}
+      propertyPath: pauzeScript
+      value: 
+      objectReference: {fileID: 973056398}
     - target: {fileID: 2272622096376887421, guid: 43cbe6459d72c6a42b69b0139f107129, type: 3}
       propertyPath: movementScript
       value: 
@@ -40257,6 +40265,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5069906610855592341, guid: 42457521d8355224c984edbfaa7e4411, type: 3}
   m_PrefabInstance: {fileID: 967799236}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &973056398 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 973056398, guid: 8894cc755741efa4786f74d49c207a7d, type: 3}
+  m_PrefabInstance: {fileID: 524059770}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac60d5023aacef4e842e3cb8162372e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &975003523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77252,7 +77271,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a8c5175ae88a79643b3471ee3081096e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.02
+  m_Volume: 0.01
   m_Pitch: 1
   Loop: 1
   Mute: 0

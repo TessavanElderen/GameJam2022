@@ -8,21 +8,21 @@ public class PauzeScreen : MonoBehaviour
     [SerializeField] Canvas canvas;
     [SerializeField] bool TogglePauze;
     public bool cursorVisible;
+    public bool playerWon;
 
     private void Start()
     {
+        Time.timeScale = 1;
+        playerWon = false;
         canvas.enabled = false;
-        TogglePauze = false;
-        Cursor.lockState = CursorLockMode.Locked;
         cursorVisible = false;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && TogglePauze == false)
+        if (Input.GetKeyDown(KeyCode.Escape) && !playerWon)
         {
-            canvas.enabled = true;
-            TogglePauze = true;
+            canvas.enabled = !canvas.enabled;
             cursorVisible = true;
             Pause();
         }
@@ -34,21 +34,6 @@ public class PauzeScreen : MonoBehaviour
     {
         Time.timeScale = 0f;
         canvas.enabled = true;
-    }
-
-    public void Resume()
-    {
-        canvas.enabled = false;
-        TogglePauze = false;
-        cursorVisible = false;
-        Time.timeScale = 1f;
-        Debug.Log("Resume");
-    }
-
-    public void Home(int SceneID)
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneID);
     }
 
     void CursorV()

@@ -9,6 +9,7 @@ public class BlackCanvasCoinCounter : MonoBehaviour
     [Header("Black Canvas Coin Text")]
     [SerializeField] TMP_Text blackCanvasCoin;
     [SerializeField] TMP_Text blackCanvasSpecialCoin;
+    [SerializeField] CoinCounter coinCounterScript;
 
 
     private int emptyCoinCount = 0;
@@ -16,8 +17,6 @@ public class BlackCanvasCoinCounter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        emptyCoinCount = 0;
-        emptySpecialCoinCount = 0;
 
     }
 
@@ -30,7 +29,7 @@ public class BlackCanvasCoinCounter : MonoBehaviour
     // tijdens het zwarte scherm hoeft er niks te staan.
     void blackCanvas()
     {
-        blackCanvasCoin.text = $"{emptyCoinCount}/5";
-        blackCanvasSpecialCoin.text = $"{emptySpecialCoinCount}/1";
+        blackCanvasCoin.text = $"{coinCounterScript.coinCount}/5";
+        blackCanvasSpecialCoin.text = $"{coinCounterScript.specialCoinCount}/1";
     }
 }

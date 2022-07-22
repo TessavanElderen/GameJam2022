@@ -6,6 +6,10 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] int index;
 
+    [SerializeField] Canvas canvas;
+    [SerializeField] bool TogglePauze;
+    public bool cursorVisible;
+
     public void OnClick()
     {
         SceneManager.LoadScene(index);
@@ -15,5 +19,13 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Quit the game");
+    }
+    public void Resume()
+    {
+        canvas.enabled = false;
+        TogglePauze = false;
+        cursorVisible = false;
+        Time.timeScale = 1f;
+        Debug.Log("Resume");
     }
 }

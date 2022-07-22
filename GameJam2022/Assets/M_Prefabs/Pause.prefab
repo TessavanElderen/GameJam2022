@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8279053538469748355}
   - component: {fileID: 8279053538469748354}
   - component: {fileID: 8279053538469748365}
-  - component: {fileID: 8279053538469748352}
+  - component: {fileID: 1300665188}
   m_Layer: 0
   m_Name: Resume Button
   m_TagString: Untagged
@@ -121,8 +121,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8279053538469748352}
-        m_TargetAssemblyTypeName: PauzeScreen, Assembly-CSharp
+      - m_Target: {fileID: 1300665188}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
@@ -133,7 +133,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8279053538469748352
+--- !u!114 &1300665188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,9 +142,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8279053538469748367}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ac60d5023aacef4e842e3cb8162372e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4840a64a3436efd42b77c7b62fdfdb0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   canvas: {fileID: 8279053539151968621}
   TogglePauze: 0
   cursorVisible: 0
@@ -157,6 +158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8279053538712211102}
+  - component: {fileID: 973056398}
   m_Layer: 0
   m_Name: Pause
   m_TagString: Untagged
@@ -179,6 +181,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &973056398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8279053538712211097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac60d5023aacef4e842e3cb8162372e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 8279053539151968621}
+  TogglePauze: 0
+  cursorVisible: 0
+  playerWon: 0
 --- !u!1 &8279053539151968617
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +311,7 @@ GameObject:
   - component: {fileID: 8279053539186129749}
   - component: {fileID: 8279053539186129748}
   - component: {fileID: 8279053539186129751}
-  - component: {fileID: 8279053539186129750}
+  - component: {fileID: 1030652260}
   m_Layer: 0
   m_Name: Menu Button
   m_TagString: Untagged
@@ -402,10 +420,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8279053539186129750}
-        m_TargetAssemblyTypeName: PauzeScreen, Assembly-CSharp
-        m_MethodName: Home
-        m_Mode: 3
+      - m_Target: {fileID: 1030652260}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -414,7 +432,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8279053539186129750
+--- !u!114 &1030652260
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -423,9 +441,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8279053539186129744}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ac60d5023aacef4e842e3cb8162372e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4840a64a3436efd42b77c7b62fdfdb0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   canvas: {fileID: 8279053539151968621}
   TogglePauze: 0
   cursorVisible: 0
